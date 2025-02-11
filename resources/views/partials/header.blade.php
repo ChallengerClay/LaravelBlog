@@ -15,6 +15,7 @@
           <li>
             <a class="nav-link" href="{{route('public.categories')}}">Categories</a>
           </li>
+          @guest
           <li>
             <a class="nav-link" href="{{route('login.get')}}">Login</a>
           </li>
@@ -22,6 +23,10 @@
           <li>
             <a class="nav-link" href="{{route('signup.get')}}">Signup</a>
           </li>
+          @endguest
+          @auth
+          <a class="nav-link" href="{{route('logout')}}">Logout</a>
+          @endauth
         </ul>
       </div>
     </div>

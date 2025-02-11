@@ -19,9 +19,9 @@ Route::middleware(CheckUserSession::class)->group(function (){
 
     Route::get('login',[AuthController::class,'getLogin'])->name('login.get');
     Route::post('login',[AuthController::class,'postLogin'])->name('login.post');
-
-    Route::get('logout',[AuthController::class,'getLogout']);
 });
+
+Route::get('logout',[AuthController::class,'getLogout'])->name('logout');
 
 Route::middleware(IsUserAdmin::class)->group(function (){
     Route::prefix('admin')->group(function () {

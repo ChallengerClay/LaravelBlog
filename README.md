@@ -1,5 +1,5 @@
 
-#Proyecto Blog con Laravel y Bootstrap
+## Proyecto Blog con Laravel y Bootstrap
 
 Pequeño blog hecho con Laravel 11 y usando clases de Bootstrap.css para el estilo de las vistas.
 
@@ -8,4 +8,10 @@ Pequeño blog hecho con Laravel 11 y usando clases de Bootstrap.css para el esti
 ```bash
   php artisan db:seed RoleSeeder
   php artisan tinker \App\Models\User::factory(10)->create();
+```
+
+## Crear Categorias
+
+```bash
+  php artisan db:seed CategorySeeder
 ```
