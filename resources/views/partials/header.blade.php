@@ -25,7 +25,12 @@
           </li>
           @endguest
           @auth
-          <a class="nav-link" href="{{route('logout')}}">Logout</a>
+          <li>
+            <a class="nav-link" href="{{route('logout')}}">Logout</a>
+          </li>
+          <li>
+            <a class="nav-link d-flex flex-end" href="{{route('logout')}}">{{Auth::user()->email}}</a>
+          </li>
           @endauth
         </ul>
       </div>

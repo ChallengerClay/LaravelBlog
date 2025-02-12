@@ -17,7 +17,10 @@ class IsUserAdmin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if(Auth::check() && Auth::user()->role->id === Role::ADMIN)
+        if(!Auth::check() || !Auth::user()->role->id === Role::ADMIN){
+            return redirect()->route('home')->with('error','Not allowed to get here');
+        }
+
         return $next($request);
     }
 }

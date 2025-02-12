@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PostController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\HomeController;
 use App\Http\Middleware\CheckUserSession;
@@ -25,6 +26,7 @@ Route::get('logout',[AuthController::class,'getLogout'])->name('logout');
 
 Route::middleware(IsUserAdmin::class)->group(function (){
     Route::prefix('admin')->group(function () {
+        Route::get('/',[AdminController::class,'getIndex']);
         Route::resource('posts', PostController::class);
         Route::resource('categories', CategoryController::class);
     });
