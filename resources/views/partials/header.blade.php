@@ -10,10 +10,10 @@
             <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="{{route('public.posts')}}">Posts</a>
+            <a class="nav-link" href="{{route('posts.public')}}">Posts</a>
           </li>
           <li>
-            <a class="nav-link" href="{{route('public.categories')}}">Categories</a>
+            <a class="nav-link" href="{{route('categories.public')}}">Categories</a>
           </li>
           @guest
           <li>

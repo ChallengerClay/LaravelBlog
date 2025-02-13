@@ -12,8 +12,12 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class,'getHome'])->name('home');
 Route::get('about', [HomeController::class,'getAbout'])->name('about');
 Route::get('contact', [HomeController::class,'getContact'])->name('contact');
-Route::get('posts/{category?}', [HomeController::class,'getPosts'])->name('public.posts');
-Route::get('categories', [HomeController::class,'getCategories'])->name('public.categories');
+Route::prefix('posts')->group(function(){
+    Route::get('/{category?}',[HomeController::class,'getPosts'])->name('posts.public');
+    Route::get('/{id}',[HomeController::class,'getPostDetail'])->name('post.public');
+});
+
+Route::get('categories', [HomeController::class,'getCategories'])->name('categories.public');
 Route::middleware(CheckUserSession::class)->group(function (){
     Route::get('signup',[AuthController::class,'getSignup'])->name('signup.get');
     Route::post('signup',[AuthController::class,'postSignup']);

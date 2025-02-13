@@ -5,9 +5,10 @@
     <div class="row my-2">
         <h2>Our latest posts</h2>
     </div>
-    <div class="d-flex justify-content-around my-3">
+    <div class="d-flex d- justify-content-around my-3">
         @foreach($posts as $post)
-            <div class="card" style="width: 18rem;">
+            <a class="link-underline link-underline-opacity-0" href="{{route('post.public',['id' => $post->id])}}"></a>
+            <div class="card border-2 border-success border-opacity-75" style="width: 18rem;">
                 <div class="card-body">
                     <h5 class="card-title">{{$post->title}}</h5>
                     <p class="card-text">{{$post->content}}</p>
@@ -19,7 +20,7 @@
         @endforeach
 
     </div>
-    <a class="d-flex justify-content-center link-body-emphasis text-center link-underline-darklink-offset-2 link-underline link-underline-opacity-0" href="{{route('public.posts')}}">Go to all posts --></a>
+    <a class="d-flex justify-content-center link-body-emphasis text-center link-underline-darklink-offset-2 link-underline link-underline-opacity-0" href="{{route('posts.public')}}">Go to all posts --></a>
     <div class="row my-4">
         <h2>Some categories for you</h2>
     </div>
@@ -35,6 +36,6 @@
         @endforeach
 
     </div>
-    <a class="d-flex my-3 justify-content-center text-center link-body-emphasis link-underline-darklink-offset-2 link-underline link-underline-opacity-0" href="{{route('public.posts')}}">Go to all categories --></a>
+    <a class="d-flex my-3 justify-content-center text-center link-body-emphasis link-underline-darklink-offset-2 link-underline link-underline-opacity-0" href="{{route('categories.public')}}">Go to all categories --></a>
 </div>
 @endsection

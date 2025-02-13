@@ -21,6 +21,16 @@ class HomeController extends Controller
         return view('home.posts', compact('posts'));
     }
 
+    public function getPostDetails($id){
+        $post = Post::find($id);
+        return view('home.post',compact($post));
+    }
+
+    public function getCategories(){
+        $categories = Category::paginate(10);
+        return view('home.categories', compact('categories'));
+    }
+
     public function getAbout(){
         return view('about');
     }
